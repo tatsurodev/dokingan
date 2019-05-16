@@ -36,4 +36,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // リレーション定義
+    // Sexモデル
+    public function sex()
+    {
+        return $this->belongsTo(Sex::class);
+    }
 }

@@ -11,6 +11,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call([
+            // usersテーブルは、sexes、rolesテーブルに外部キー設定があるので先にsexes、rolesテーブルのレコードを作る必要があるので、コールする順番に注意
+            SexesTableSeeder::class,
+            RolesTableSeeder::class,
+            UsersTableSeeder::class,
+        ]);
     }
 }

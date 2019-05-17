@@ -17,6 +17,16 @@ class Glass extends Model
     {
         return $this->belongsTo(Brand::class);
     }
+    // 画像複数
+    public function glassImages()
+    {
+        // 第一引数 関連するモデル名
+        // 第二引数 外部キー(従テーブル、リレーション先、参照先に設定)、主テーブルのモデル名_idの場合省略可
+        // この場合の第二引数は、従テーブルの外部キーであるglass_idとなり、glassは主テーブルのモデル名なので省略している
+        // 第三引数 内部キー(主テーブル、リレーション元、参照元に設定)、idの場合省略可
+        // この場合の第三引数は、主テーブルの内部キーであるidとななるので省略している
+        return $this->hasMany(GlassImage::class);
+    }
     // お気に入り、多対多
     public function favorites()
     {

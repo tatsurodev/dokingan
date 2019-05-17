@@ -15,7 +15,11 @@ class DatabaseSeeder extends Seeder
             // usersテーブルは、sexes、rolesテーブルに外部キー設定があるので先にsexes、rolesテーブルのレコードを作る必要があるので、コールする順番に注意
             SexesTableSeeder::class,
             RolesTableSeeder::class,
-            UsersTableSeeder::class,
+            // Userシーダーのリレーションで作成するglassesテーブルにbrandsテーブルの外部キーがあるのでbrandsシーダーを先にコール
+            BrandsTableSeeder::class,
+            UsersGlassesGlassImagesTableSeeder::class,
+            // favorites
+            FavoritesOwnersTableSeeder::class,
         ]);
     }
 }

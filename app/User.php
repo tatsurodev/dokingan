@@ -50,4 +50,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Glass::class);
     }
+    // お気に入り、多対多
+    public function favorites()
+    {
+        return $this->belongsToMany(Glass::class, 'favorites')->withTimestamps();
+    }
+    // オーナー、多対多
+    public function owners()
+    {
+        return $this->belongsToMany(Glass::class, 'owners')->withTimestamps();
+    }
 }

@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Glass;
+
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -42,5 +44,10 @@ class User extends Authenticatable
     public function sex()
     {
         return $this->belongsTo(Sex::class);
+    }
+    // Glassモデル
+    public function glasses()
+    {
+        return $this->hasMany(Glass::class);
     }
 }
